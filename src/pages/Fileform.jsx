@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import readXlsxFile from 'read-excel-file';
 import { mtf } from '../constants/MStock';
+import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
 
 export default function FileForm() {
   const [file, setFile] = useState(null);
@@ -74,9 +75,10 @@ export default function FileForm() {
             <Button
               variant="contained"
               color="primary"
-              style={{ margin: '1%' }}
+              style={{ margin: '1%', backgroundColor: 'black' }}
               type="submit"
               size="large"
+              startIcon={<CloudUploadIcon />}
             >
               Upload
             </Button>
