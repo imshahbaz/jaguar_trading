@@ -2,11 +2,11 @@ import * as React from 'react';
 import { Box, Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
-import StockDetailsTable from './Table';
+import StockDetailsTable from '../components/Table';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import readXlsxFile from 'read-excel-file';
-import { mtf } from './MStock';
+import { mtf } from '../constants/MStock';
 
 export default function FileForm() {
   const [file, setFile] = useState(null);
