@@ -5,6 +5,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { useState } from 'react';
+import { chartink_strategy } from '../constants/ChartInkStrategy';
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -18,11 +22,64 @@ export default function NavBar() {
           <Button color="inherit" onClick={() => navigate('/')}>
             Home
           </Button>
-          <Button color="inherit" onClick={() => navigate('/scanners')}>
-            Scanners
-          </Button>
+          <Scanners></Scanners>
         </Toolbar>
       </AppBar>
     </Box>
+  );
+}
+
+function Scanners() {
+  const [anchorEl, setAnchorEl] = useState(
+    (React.useState < null) | (HTMLElement > null)
+  );
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const menuItems = [];
+  Object.entries(chartink_strategy).forEach((entry) => {
+    menuItems.push(
+      <a
+        href={entry[1]}
+        target="_blank"
+        style={{ textDecoration: 'none' }}
+        rel="noreferrer"
+      >
+        <MenuItem key={entry[0]} style={{ color: 'black' }}>
+          {entry[0]}
+        </MenuItem>
+      </a>
+    );
+  });
+
+  return (
+    <div>
+      <Button
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+        style={{ color: 'white' }}
+      >
+        Scanners
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        {menuItems}
+      </Menu>
+    </div>
   );
 }

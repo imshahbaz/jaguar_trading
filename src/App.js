@@ -4,7 +4,6 @@ import FileForm from './pages/Fileform';
 import { Box } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Chartink from './pages/Chartink';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
           <NavBar></NavBar>
           <Routes>
             <Route path="/" element={<FileForm />}></Route>
-            <Route path="/scanners" element={<Chartink />}></Route>
           </Routes>
         </BrowserRouter>
       </Stack>
