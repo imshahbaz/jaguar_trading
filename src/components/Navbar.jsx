@@ -19,9 +19,11 @@ export default function NavBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Jaguar Trading
           </Typography>
-          <Button color="inherit" onClick={() => navigate('/')}>
-            Home
-          </Button>
+          {false && (
+            <Button color="inherit" onClick={() => navigate('/')}>
+              Home
+            </Button>
+          )}
           <Scanners></Scanners>
         </Toolbar>
       </AppBar>

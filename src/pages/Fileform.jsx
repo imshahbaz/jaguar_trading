@@ -8,11 +8,14 @@ import { useEffect } from 'react';
 import readXlsxFile from 'read-excel-file';
 import { mtf } from '../constants/MStock';
 import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
+import TutorialModal from '../components/TutorialModal';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 export default function FileForm() {
   const [file, setFile] = useState(null);
   const [show, setShow] = useState(null);
   const [rows, setRows] = useState([]);
+  const [tutorialModalShow, setTutorialModalShow] = useState(false);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -39,7 +42,6 @@ export default function FileForm() {
         response.push({ name: stock.symbol, margin: stock.percent });
     });
 
-    console.log(response);
     return response.sort((a, b) => {
       return b.margin - a.margin;
     });
@@ -51,6 +53,10 @@ export default function FileForm() {
     if (e.target.files) {
       setFile(e.target.files[0]);
     }
+  };
+
+  const handleTutorialShow = () => {
+    setTutorialModalShow(!tutorialModalShow);
   };
 
   return (
@@ -86,6 +92,22 @@ export default function FileForm() {
         </Grid>
         <Grid item xs={10}>
           <StockDetailsTable show={show} rows={rows}></StockDetailsTable>
+        </Grid>
+        <Grid item xs={8}>
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ margin: '1%', backgroundColor: 'black' }}
+            size="large"
+            onClick={handleTutorialShow}
+            startIcon={<AssignmentIcon />}
+          >
+            Tutorial
+          </Button>
+          <TutorialModal
+            show={handleTutorialShow}
+            open={tutorialModalShow}
+          ></TutorialModal>
         </Grid>
       </Grid>
     </Box>
