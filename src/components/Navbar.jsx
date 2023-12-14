@@ -50,7 +50,11 @@ function Scanners() {
         style={{ textDecoration: 'none' }}
         rel="noreferrer"
       >
-        <MenuItem key={entry[0]} style={{ color: 'black' }}>
+        <MenuItem
+          key={entry[0]}
+          style={{ color: 'black' }}
+          onClick={handleClose}
+        >
           {entry[0]}
         </MenuItem>
       </a>
