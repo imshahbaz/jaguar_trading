@@ -35,18 +35,25 @@ export default function FileForm() {
   };
 
   const handleData = (data) => {
-    let list = [];
-    let response = [];
+    const priceData = [];
+    const priceNames = [];
     for (let i = 0; i < data.length; i++) {
       if (i === 0 || i === 1) continue;
       const name = data[i][2];
-      list.push(name);
+      priceData.push({ name: name, price: data[i][5] });
+      priceNames.push(name);
     }
 
-    const set = new Set(list);
-    mtf.forEach((stock) => {
-      if (set.has(stock.symbol))
-        response.push({ name: stock.symbol, margin: stock.percent });
+    const marginData = mtf.map((stock) => {
+      return stock.symbol;
+    });
+
+    const commonData = priceNames.filter((name) => marginData.includes(name));
+
+    const response = commonData.map((name) => {
+      const margin = mtf.find((stock) => stock.symbol === name);
+      const price = priceData.find((stock) => stock.name === name);
+      return { name: name, margin: margin.percent, price: price['price'] };
     });
 
     return response.sort((a, b) => {

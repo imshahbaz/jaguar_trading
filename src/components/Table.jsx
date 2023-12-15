@@ -17,6 +17,7 @@ export default function StockDetailsTable(props) {
               <TableRow>
                 <TableCell align="center">Name</TableCell>
                 <TableCell align="center">Margin</TableCell>
+                <TableCell align="center">{'Price(INR)'}</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -29,6 +30,7 @@ export default function StockDetailsTable(props) {
                     {row.name}
                   </TableCell>
                   <TableCell align="center">{row.margin}</TableCell>
+                  <TableCell align="center">{row.price}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
