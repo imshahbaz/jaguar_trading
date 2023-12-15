@@ -51,6 +51,7 @@ function Scanners() {
         target="_blank"
         style={{ textDecoration: 'none' }}
         rel="noreferrer"
+        key={entry[0]}
       >
         <MenuItem
           key={entry[0]}

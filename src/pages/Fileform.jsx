@@ -10,21 +10,28 @@ import { mtf } from '../constants/MStock';
 import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
 import TutorialModal from '../components/TutorialModal';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import Divider from '@mui/material/Divider';
+import AlertInfo from '../components/AlertInfo';
 
 export default function FileForm() {
   const [file, setFile] = useState(null);
   const [show, setShow] = useState(null);
   const [rows, setRows] = useState([]);
   const [tutorialModalShow, setTutorialModalShow] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(file);
-    console.log('upload');
     readXlsxFile(file).then((data) => {
-      setRows(handleData(data));
+      const response = handleData(data);
+      if (response.length > 0) {
+        setRows(handleData(data));
+        setShow(true);
+      } else {
+        setShow(false);
+        setShowAlert(true);
+      }
     });
-    setShow(true);
   };
 
   const handleData = (data) => {
@@ -47,7 +54,7 @@ export default function FileForm() {
     });
   };
 
-  useEffect(() => {}, [rows, show]);
+  useEffect(() => {}, [rows, show, showAlert]);
 
   const handleFileChange = (e) => {
     if (e.target.files) {
@@ -57,6 +64,10 @@ export default function FileForm() {
 
   const handleTutorialShow = () => {
     setTutorialModalShow(!tutorialModalShow);
+  };
+
+  const handleShowAlert = () => {
+    setShowAlert(false);
   };
 
   return (
@@ -90,6 +101,9 @@ export default function FileForm() {
             </Button>
           </form>
         </Grid>
+        <Grid item xs={12}>
+          <Divider />
+        </Grid>
         <Grid item xs={10}>
           <StockDetailsTable show={show} rows={rows}></StockDetailsTable>
         </Grid>
@@ -108,6 +122,13 @@ export default function FileForm() {
             show={handleTutorialShow}
             open={tutorialModalShow}
           ></TutorialModal>
+        </Grid>
+        <Grid item xs={12}>
+          <AlertInfo
+            open={showAlert}
+            message="No stocks found for this strategy choose different strategy"
+            handleClose={handleShowAlert}
+          />
         </Grid>
       </Grid>
     </Box>

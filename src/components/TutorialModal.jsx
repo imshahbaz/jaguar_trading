@@ -14,7 +14,6 @@ export default function TutorialModal(props) {
   return (
     <Dialog
       fullWidth={true}
-      maxWidth={true}
       open={props.open}
       onClose={props.show}
       style={{ textAlign: 'center' }}
