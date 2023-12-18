@@ -99,7 +99,7 @@ export default function FileForm() {
             <Button
               variant="contained"
               color="primary"
-              style={{ margin: '1%', backgroundColor: 'black' }}
+              style={{ margin: '1%', backgroundColor: '#112A24' }}
               type="submit"
               size="large"
               startIcon={<CloudUploadIcon />}
@@ -118,7 +118,7 @@ export default function FileForm() {
           <Button
             variant="contained"
             color="primary"
-            style={{ margin: '1%', backgroundColor: 'black' }}
+            style={{ margin: '1%', backgroundColor: '#112A24' }}
             size="large"
             onClick={handleTutorialShow}
             startIcon={<AssignmentIcon />}

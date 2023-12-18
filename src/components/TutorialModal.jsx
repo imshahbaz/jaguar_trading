@@ -44,7 +44,12 @@ export default function TutorialModal(props) {
       </DialogContent>
       <Divider />
       <DialogActions>
-        <Button onClick={props.show}>Close</Button>
+        <Button
+          onClick={props.show}
+          style={{ backgroundColor: '#112A24', color: 'white' }}
+        >
+          Close
+        </Button>
       </DialogActions>
     </Dialog>
   );

@@ -14,7 +14,7 @@ export default function NavBar() {
   const navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ backgroundColor: 'black' }}>
+      <AppBar position="static" style={{ backgroundColor: '#112A24' }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Jaguar Trading
