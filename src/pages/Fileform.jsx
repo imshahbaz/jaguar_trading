@@ -94,6 +94,7 @@ export default function FileForm() {
                 required={true}
                 style={{ margin: '1rem' }}
                 onChange={handleFileChange}
+                inputProps={{ accept: '.xlsx' }}
               />
               <br></br>
               <Button
