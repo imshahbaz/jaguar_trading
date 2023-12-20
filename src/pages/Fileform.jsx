@@ -1,16 +1,12 @@
 import * as React from 'react';
-import { Box, Grid } from '@mui/material';
-import Button from '@mui/material/Button';
-import Input from '@mui/material/Input';
+import { Box, Grid, Divider, Button, Input, Paper } from '@mui/material';
 import StockDetailsTable from '../components/Table';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import readXlsxFile from 'read-excel-file';
 import { mtf } from '../constants/MStock';
 import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
 import TutorialModal from '../components/TutorialModal';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import Divider from '@mui/material/Divider';
 import AlertInfo from '../components/AlertInfo';
 
 export default function FileForm() {
@@ -87,32 +83,39 @@ export default function FileForm() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={8}>
-          <form onSubmit={(e) => onSubmit(e)}>
-            <Input
-              type="file"
-              required={true}
-              style={{ margin: '1%' }}
-              onChange={handleFileChange}
-            />
-            <br></br>
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ margin: '1%', backgroundColor: '#112A24' }}
-              type="submit"
-              size="large"
-              startIcon={<CloudUploadIcon />}
-            >
-              Upload
-            </Button>
-          </form>
+        <Grid item xs={10}>
+          <Paper
+            elevation={16}
+            sx={{ paddingTop: '1rem', paddingBottom: '1rem' }}
+          >
+            <form onSubmit={(e) => onSubmit(e)}>
+              <Input
+                type="file"
+                required={true}
+                style={{ margin: '1rem' }}
+                onChange={handleFileChange}
+              />
+              <br></br>
+              <Button
+                variant="contained"
+                color="primary"
+                style={{ margin: '1rem', backgroundColor: '#112A24' }}
+                type="submit"
+                size="large"
+                startIcon={<CloudUploadIcon />}
+              >
+                Upload
+              </Button>
+            </form>
+          </Paper>
         </Grid>
         <Grid item xs={12}>
           <Divider />
         </Grid>
         <Grid item xs={10}>
-          <StockDetailsTable show={show} rows={rows}></StockDetailsTable>
+          <Paper elevation={16}>
+            <StockDetailsTable show={show} rows={rows}></StockDetailsTable>
+          </Paper>
         </Grid>
         <Grid item xs={8}>
           <Button
