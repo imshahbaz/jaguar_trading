@@ -8,6 +8,8 @@ import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
 import TutorialModal from '../components/TutorialModal';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AlertInfo from '../components/AlertInfo';
+import '../css/Form.css';
+import upload from '../images/upload.png';
 
 export default function FileForm() {
   const [file, setFile] = useState(null);
@@ -15,6 +17,7 @@ export default function FileForm() {
   const [rows, setRows] = useState([]);
   const [tutorialModalShow, setTutorialModalShow] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [fileName, setFileName] = useState(null);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -62,6 +65,7 @@ export default function FileForm() {
   const handleFileChange = (e) => {
     if (e.target.files) {
       setFile(e.target.files[0]);
+      setFileName(e.target.files[0].name);
     }
   };
 
@@ -71,6 +75,10 @@ export default function FileForm() {
 
   const handleShowAlert = () => {
     setShowAlert(false);
+  };
+
+  const triggerClick = () => {
+    document.querySelector('#excel-file-input').click();
   };
 
   return (
@@ -89,14 +97,28 @@ export default function FileForm() {
             sx={{ paddingTop: '1rem', paddingBottom: '1rem' }}
           >
             <form onSubmit={(e) => onSubmit(e)}>
+              <Box className="upload-input" onClick={triggerClick}>
+                <img
+                  src={upload}
+                  alt="Upload Excel File"
+                  className="upload-input-image"
+                />
+              </Box>
+              {fileName && (
+                <section className="filename-section">
+                  <span className="filename-span">
+                    Selected File :- {fileName}
+                  </span>
+                </section>
+              )}
               <Input
                 type="file"
                 required={true}
-                style={{ margin: '1rem' }}
+                style={{ margin: '1rem', display: 'none' }}
                 onChange={handleFileChange}
                 inputProps={{ accept: '.xlsx' }}
+                id="excel-file-input"
               />
-              <br></br>
               <Button
                 variant="contained"
                 color="primary"

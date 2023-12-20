@@ -1,0 +1,32 @@
+.upload-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #112a24;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 1rem;
+  height: 5rem;
+}
+
+.upload-input-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 5rem;
+}
+
+.filename-section {
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.filename-span {
+  color: #112a24;
+  font-weight: bold;
+}
