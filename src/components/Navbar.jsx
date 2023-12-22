@@ -8,7 +8,7 @@ import { Button } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
-import { chartink_strategy } from '../constants/ChartInkStrategy';
+import { chartink_strategy2 } from '../constants/ChartInkStrategy';
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -44,24 +44,27 @@ function Scanners() {
   };
 
   const menuItems = [];
-  Object.entries(chartink_strategy).forEach((entry) => {
-    menuItems.push(
-      <a
-        href={entry[1]}
-        target="_blank"
-        style={{ textDecoration: 'none' }}
-        rel="noreferrer"
-        key={entry[0]}
-      >
-        <MenuItem
-          key={entry[0]}
-          style={{ color: 'black' }}
-          onClick={handleClose}
+
+  chartink_strategy2.forEach((strategy) => {
+    if (strategy.display) {
+      menuItems.push(
+        <a
+          href={strategy.link}
+          target="_blank"
+          style={{ textDecoration: 'none' }}
+          rel="noreferrer"
+          key={strategy.name}
         >
-          {entry[0]}
-        </MenuItem>
-      </a>
-    );
+          <MenuItem
+            key={strategy.name}
+            style={{ color: 'black' }}
+            onClick={handleClose}
+          >
+            {strategy.name}
+          </MenuItem>
+        </a>
+      );
+    }
   });
 
   return (
