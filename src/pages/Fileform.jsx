@@ -3,13 +3,13 @@ import { Box, Grid, Divider, Button, Input, Paper } from '@mui/material';
 import StockDetailsTable from '../components/Table';
 import { useState, useEffect } from 'react';
 import readXlsxFile from 'read-excel-file';
-import { mtf } from '../constants/MStock';
 import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
 import TutorialModal from '../components/TutorialModal';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AlertInfo from '../components/AlertInfo';
 import '../css/Form.css';
 import upload from '../images/upload.png';
+import { handleData } from '../utils/FileUtils.js';
 
 export default function FileForm() {
   const [file, setFile] = useState(null);
@@ -30,33 +30,6 @@ export default function FileForm() {
         setShow(false);
         setShowAlert(true);
       }
-    });
-  };
-
-  const handleData = (data) => {
-    const priceData = [];
-    const priceNames = [];
-    for (let i = 0; i < data.length; i++) {
-      if (i === 0 || i === 1) continue;
-      const name = data[i][2];
-      priceData.push({ name: name, price: data[i][5] });
-      priceNames.push(name);
-    }
-
-    const marginData = mtf.map((stock) => {
-      return stock.symbol;
-    });
-
-    const commonData = priceNames.filter((name) => marginData.includes(name));
-
-    const response = commonData.map((name) => {
-      const margin = mtf.find((stock) => stock.symbol === name);
-      const price = priceData.find((stock) => stock.name === name);
-      return { name: name, margin: margin.percent, price: price['price'] };
-    });
-
-    return response.sort((a, b) => {
-      return b.margin - a.margin;
     });
   };
 
@@ -92,53 +65,18 @@ export default function FileForm() {
         alignItems="center"
       >
         <Grid item xs={10}>
-          <Paper
-            elevation={16}
-            sx={{ paddingTop: '1rem', paddingBottom: '1rem' }}
-          >
-            <form onSubmit={(e) => onSubmit(e)}>
-              <Box className="upload-input" onClick={triggerClick}>
-                <img
-                  src={upload}
-                  alt="Upload Excel File"
-                  className="upload-input-image"
-                />
-              </Box>
-              {fileName && (
-                <section className="filename-section">
-                  <span className="filename-span">
-                    Selected File :- {fileName}
-                  </span>
-                </section>
-              )}
-              <Input
-                type="file"
-                required={true}
-                style={{ margin: '1rem', display: 'none' }}
-                onChange={handleFileChange}
-                inputProps={{ accept: '.xlsx' }}
-                id="excel-file-input"
-              />
-              <Button
-                variant="contained"
-                color="primary"
-                style={{ margin: '1rem', backgroundColor: '#112A24' }}
-                type="submit"
-                size="large"
-                startIcon={<CloudUploadIcon />}
-              >
-                Upload
-              </Button>
-            </form>
-          </Paper>
+          <AcceptFileForm
+            fileName={fileName}
+            onSubmit={onSubmit}
+            triggerClick={triggerClick}
+            handleFileChange={handleFileChange}
+          />
         </Grid>
         <Grid item xs={12}>
           <Divider />
         </Grid>
         <Grid item xs={10}>
-          <Paper elevation={16}>
-            <StockDetailsTable show={show} rows={rows}></StockDetailsTable>
-          </Paper>
+          <StockDetailsTable show={show} rows={rows}></StockDetailsTable>
         </Grid>
         <Grid item xs={8}>
           <Button
@@ -165,5 +103,46 @@ export default function FileForm() {
         </Grid>
       </Grid>
     </Box>
+  );
+}
+
+function AcceptFileForm(props) {
+  return (
+    <Paper elevation={16} sx={{ paddingTop: '1rem', paddingBottom: '1rem' }}>
+      <form onSubmit={(e) => props.onSubmit(e)}>
+        <Box className="upload-input" onClick={props.triggerClick}>
+          <img
+            src={upload}
+            alt="Upload Excel File"
+            className="upload-input-image"
+          />
+        </Box>
+        {props.fileName && (
+          <section className="filename-section">
+            <span className="filename-span">
+              Selected File :- {props.fileName}
+            </span>
+          </section>
+        )}
+        <Input
+          type="file"
+          required={true}
+          style={{ margin: '1rem', display: 'none' }}
+          onChange={props.handleFileChange}
+          inputProps={{ accept: '.xlsx' }}
+          id="excel-file-input"
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ margin: '1rem', backgroundColor: '#112A24' }}
+          type="submit"
+          size="large"
+          startIcon={<CloudUploadIcon />}
+        >
+          Upload
+        </Button>
+      </form>
+    </Paper>
   );
 }
