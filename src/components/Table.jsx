@@ -11,8 +11,8 @@ export default function StockDetailsTable(props) {
   return (
     <>
       {props.show && (
-        <Paper elevation={16}>
-          <TableContainer component={Paper}>
+        <Paper elevation={16} style={{ borderRadius: '2rem' }}>
+          <TableContainer component={Paper} style={{ borderRadius: '2rem' }}>
             <Table aria-label="simple table" stickyHeader>
               <TableHead>
                 <TableRow>

@@ -82,7 +82,12 @@ export default function FileForm() {
           <Button
             variant="contained"
             color="primary"
-            style={{ margin: '1%', backgroundColor: '#112A24' }}
+            style={{
+              margin: '1%',
+              backgroundColor: '#112A24',
+              borderRadius: '1rem',
+              width: '87.5%',
+            }}
             size="large"
             onClick={handleTutorialShow}
             startIcon={<AssignmentIcon />}
@@ -108,7 +113,10 @@ export default function FileForm() {
 
 function AcceptFileForm(props) {
   return (
-    <Paper elevation={16} sx={{ paddingTop: '1rem', paddingBottom: '1rem' }}>
+    <Paper
+      elevation={16}
+      sx={{ paddingTop: '1rem', paddingBottom: '1rem', borderRadius: '2rem' }}
+    >
       <form onSubmit={(e) => props.onSubmit(e)}>
         <Box className="upload-input" onClick={props.triggerClick}>
           <img
@@ -135,7 +143,12 @@ function AcceptFileForm(props) {
         <Button
           variant="contained"
           color="primary"
-          style={{ margin: '1rem', backgroundColor: '#112A24' }}
+          style={{
+            margin: '1rem',
+            backgroundColor: '#112A24',
+            borderRadius: '1rem',
+            width: '70%',
+          }}
           type="submit"
           size="large"
           startIcon={<CloudUploadIcon />}
