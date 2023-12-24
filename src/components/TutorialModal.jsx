@@ -8,10 +8,10 @@ import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-
-const grey = '#1d1d1d';
+import { ColorCodes } from '../constants/ColorCodes.jsx';
 
 export default function TutorialModal(props) {
+  const style = { backgroundColor: ColorCodes.element, color: ColorCodes.text };
   return (
     <Dialog
       fullWidth={true}
@@ -19,19 +19,15 @@ export default function TutorialModal(props) {
       onClose={props.show}
       style={{
         textAlign: 'center',
-        backgroundColor: '#111111',
-        color: 'white',
+        ...style,
       }}
     >
-      <DialogTitle style={{ backgroundColor: '#111111', color: 'white' }}>
-        Tutorial
-      </DialogTitle>
-      <DialogContent style={{ backgroundColor: '#111111', color: 'white' }}>
+      <DialogTitle style={style}>Tutorial</DialogTitle>
+      <DialogContent style={style}>
         <DialogContentText
           style={{
-            backgroundColor: '#111111',
-            color: 'white',
             marginTop: '1rem',
+            ...style,
           }}
         >
           Follow the Steps
@@ -41,8 +37,6 @@ export default function TutorialModal(props) {
           style={{
             textAlign: 'center',
             justifyContent: 'center',
-            backgroundColor: '#111111',
-            color: 'white',
           }}
         >
           <ListItem>
@@ -59,11 +53,14 @@ export default function TutorialModal(props) {
           </ListItem>
         </List>
       </DialogContent>
-      <DialogActions style={{ backgroundColor: '#111111', color: 'white' }}>
+      <DialogActions style={style}>
         <Button
           variant="outlined"
           onClick={props.show}
-          style={{ color: 'white', border: '2px solid ' + grey }}
+          style={{
+            color: ColorCodes.text,
+            border: '2px solid ' + ColorCodes.border,
+          }}
         >
           Close
         </Button>

@@ -3,21 +3,17 @@ import { Box, Grid, Divider, Button, Input, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
 import readXlsxFile from 'read-excel-file';
 import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
-import TutorialModal from '../components/TutorialModal';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 import AlertInfo from '../components/AlertInfo';
 import '../css/HomePage.css';
 import upload from '../images/upload.png';
 import { handleData } from '../utils/FileUtils.js';
 import StockDetailsTable from '../components/Table copy.jsx';
-
-const grey = '#1d1d1d';
+import { ColorCodes } from '../constants/ColorCodes.jsx';
 
 export default function HomePage() {
   const [file, setFile] = useState(null);
   const [show, setShow] = useState(null);
   const [rows, setRows] = useState([]);
-  const [tutorialModalShow, setTutorialModalShow] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [fileName, setFileName] = useState(null);
 
@@ -42,10 +38,6 @@ export default function HomePage() {
       setFile(e.target.files[0]);
       setFileName(e.target.files[0].name);
     }
-  };
-
-  const handleTutorialShow = () => {
-    setTutorialModalShow(!tutorialModalShow);
   };
 
   const handleShowAlert = () => {
@@ -75,32 +67,10 @@ export default function HomePage() {
           />
         </Grid>
         <Grid item xs={12}>
-          <Divider color={grey} />
+          <Divider color={ColorCodes.element} />
         </Grid>
         <Grid item xs={10}>
           <StockDetailsTable show={show} rows={rows}></StockDetailsTable>
-        </Grid>
-        <Grid item xs={8}>
-          <Button
-            variant="outlined"
-            color="primary"
-            style={{
-              margin: '1%',
-              borderRadius: '1rem',
-              width: '87.5%',
-              color: 'white',
-              border: '4px solid ' + grey,
-            }}
-            size="large"
-            onClick={handleTutorialShow}
-            startIcon={<AssignmentIcon />}
-          >
-            Tutorial
-          </Button>
-          <TutorialModal
-            show={handleTutorialShow}
-            open={tutorialModalShow}
-          ></TutorialModal>
         </Grid>
         <Grid item xs={12}>
           <AlertInfo
@@ -121,9 +91,8 @@ function AcceptFileForm(props) {
         paddingTop: '1rem',
         paddingBottom: '1rem',
         borderRadius: '2rem',
-        backgroundColor: '#111111',
+        backgroundColor: ColorCodes.element,
         marginTop: '1rem',
-        border: '4px solid ' + grey,
       }}
     >
       <form onSubmit={(e) => props.onSubmit(e)}>
@@ -156,8 +125,8 @@ function AcceptFileForm(props) {
             margin: '1rem',
             borderRadius: '1rem',
             width: '70%',
-            color: 'white',
-            border: '4px solid ' + grey,
+            color: ColorCodes.text,
+            border: '2px solid ' + ColorCodes.border,
           }}
           type="submit"
           size="large"

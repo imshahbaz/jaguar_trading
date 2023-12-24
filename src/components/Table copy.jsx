@@ -6,20 +6,24 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { ColorCodes } from '../constants/ColorCodes.jsx';
 
 export default function StockDetailsTable(props) {
-  const style = { color: 'white', backgroundColor: '#111111' };
+  const style = { color: ColorCodes.text, backgroundColor: ColorCodes.element };
 
   return (
     <>
       {props.show && (
-        <Paper style={{ borderRadius: '2rem', border: '3px solid #1d1d1d' }}>
+        <Paper
+          style={{
+            borderRadius: '2rem',
+          }}
+        >
           <TableContainer
             component={Paper}
             style={{
               borderRadius: '2rem',
-              backgroundColor: '#111111',
-              border: '3px solid #1d1d1d',
+              backgroundColor: ColorCodes.main,
             }}
           >
             <Table aria-label="simple table" stickyHeader>

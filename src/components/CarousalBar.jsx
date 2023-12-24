@@ -1,40 +1,68 @@
 import * as React from 'react';
-import { Box, Stack, Divider } from '@mui/material';
+import { Box, Stack, Divider, Typography } from '@mui/material';
 import '../css/Scrollable.css';
 import { useState } from 'react';
 import { chartink_strategy2 } from '../constants/ChartInkStrategy';
 import jaguarlogo from '../images/jaguar-logo.jpg';
-
-const grey = '#1d1d1d';
+import { ColorCodes } from '../constants/ColorCodes.jsx';
+import TutorialModal from '../components/TutorialModal.jsx';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 
 export default function CarousalBar() {
   const style = {
     borderRadius: '0.5rem',
-    border: '3px solid ' + grey,
     padding: '1rem',
     fontWeight: 'bold',
     cursor: 'default',
+    backgroundColor: ColorCodes.element,
   };
 
   const [show, setShow] = useState(false);
+  const [tutorialModalShow, setTutorialModalShow] = useState(false);
 
   const hide = () => setShow(false);
+  const handleTutorialShow = () => {
+    setTutorialModalShow(!tutorialModalShow);
+  };
 
   return (
-    <Box sx={{ flexGrow: 1, color: 'white' }}>
+    <Box sx={{ flexGrow: 1, color: ColorCodes.text }}>
       <Logo></Logo>
       <Stack
-        spacing={4}
+        spacing={3}
         direction="row"
         className="scrollable-content"
         style={{ paddingLeft: '1rem' }}
       >
-        <Box style={style} onClick={() => setShow(!show)}>
-          SCANNERS
+        <Box
+          style={{ ...style, verticalAlign: 'middle', display: 'flex' }}
+          onClick={() => setShow(!show)}
+        >
+          <TroubleshootIcon style={{ marginRight: '3px' }}></TroubleshootIcon>
+          <Typography style={{ fontWeight: 'bold' }}>Scanners</Typography>
+        </Box>
+        <Box
+          style={{
+            verticalAlign: 'middle',
+            display: 'flex',
+            ...style,
+          }}
+          onClick={handleTutorialShow}
+        >
+          <AssignmentIcon style={{ marginRight: '3px' }}></AssignmentIcon>
+          <Typography style={{ fontWeight: 'bold' }}>Tutorial</Typography>
         </Box>
       </Stack>
       {show && <Scanners style={style} hide={hide}></Scanners>}
-      <Divider color={grey} style={{ marginTop: '1rem' }}></Divider>
+      <Divider
+        color={ColorCodes.element}
+        style={{ marginTop: '1rem' }}
+      ></Divider>
+      <TutorialModal
+        show={handleTutorialShow}
+        open={tutorialModalShow}
+      ></TutorialModal>
     </Box>
   );
 }
@@ -48,7 +76,7 @@ function Scanners(props) {
         <a
           href={strategy.link}
           target="_blank"
-          style={{ textDecoration: 'none', color: 'white' }}
+          style={{ textDecoration: 'none', color: ColorCodes.text }}
           rel="noreferrer"
           key={strategy.name}
           onClick={props.hide}
@@ -78,7 +106,7 @@ function Logo() {
     height: '3rem',
     width: '3rem',
     borderRadius: '50%',
-    border: '2px dashed ' + grey,
+    border: '2px dashed ' + ColorCodes.element,
     padding: '2px',
   };
   return (
