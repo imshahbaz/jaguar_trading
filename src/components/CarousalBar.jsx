@@ -82,7 +82,9 @@ function Scanners(props) {
           onClick={props.hide}
         >
           <Box key={strategy.name} style={props.style}>
-            {strategy.name}
+            <Typography style={{ fontWeight: 'bold', whiteSpace: 'nowrap' }}>
+              {strategy.name}
+            </Typography>
           </Box>
         </a>
       );
