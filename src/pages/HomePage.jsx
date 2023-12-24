@@ -127,6 +127,7 @@ function AcceptFileForm(props) {
             width: '70%',
             color: ColorCodes.text,
             border: '2px solid ' + ColorCodes.border,
+            fontWeight: 'bold',
           }}
           type="submit"
           size="large"

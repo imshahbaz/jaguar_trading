@@ -60,6 +60,7 @@ export default function TutorialModal(props) {
           style={{
             color: ColorCodes.text,
             border: '2px solid ' + ColorCodes.border,
+            fontWeight: 'bold',
           }}
         >
           Close

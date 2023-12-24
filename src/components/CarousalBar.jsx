@@ -106,19 +106,33 @@ function Logo() {
     height: '3rem',
     width: '3rem',
     borderRadius: '50%',
-    border: '2px dashed ' + ColorCodes.element,
+    border: '2px dashed ' + ColorCodes.border,
     padding: '2px',
   };
   return (
     <Box
       style={{
-        textAlign: 'left',
         paddingLeft: '1rem',
-        marginBottom: '0.5rem',
+        marginBottom: '1rem',
         paddingTop: '1rem',
+        verticalAlign: 'middle',
+        display: 'flex',
+        justifyContent: 'left',
+        alignItems: 'center',
       }}
     >
       <img src={jaguarlogo} alt="Jaguar Trading" style={style}></img>
+      <Typography
+        style={{
+          fontWeight: 'bold',
+          color: ColorCodes.text,
+          marginLeft: '8px',
+          fontFamily: 'Times New Roman',
+          fontSize: '2rem',
+        }}
+      >
+        Jaguar Trading
+      </Typography>
     </Box>
   );
 }
