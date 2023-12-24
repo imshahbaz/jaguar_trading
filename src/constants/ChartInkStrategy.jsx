@@ -9,4 +9,9 @@ export const chartink_strategy2 = [
     link: 'https://chartink.com/screener/3-30-2138',
     display: true,
   },
+  {
+    name: '44 MA',
+    link: 'https://chartink.com/screener/44ma-20230788',
+    display: true,
+  },
 ];
