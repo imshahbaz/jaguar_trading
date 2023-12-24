@@ -75,7 +75,7 @@ export default function HomePage() {
           />
         </Grid>
         <Grid item xs={12}>
-          <Divider />
+          <Divider color={grey} />
         </Grid>
         <Grid item xs={10}>
           <StockDetailsTable show={show} rows={rows}></StockDetailsTable>

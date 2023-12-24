@@ -5,10 +5,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+
+const grey = '#1d1d1d';
 
 export default function TutorialModal(props) {
   return (
@@ -16,37 +17,53 @@ export default function TutorialModal(props) {
       fullWidth={true}
       open={props.open}
       onClose={props.show}
-      style={{ textAlign: 'center' }}
+      style={{
+        textAlign: 'center',
+        backgroundColor: '#111111',
+        color: 'white',
+      }}
     >
-      <DialogTitle>Tutorial</DialogTitle>
-      <Divider />
-      <DialogContent>
-        <DialogContentText>Follow the Steps</DialogContentText>
+      <DialogTitle style={{ backgroundColor: '#111111', color: 'white' }}>
+        Tutorial
+      </DialogTitle>
+      <DialogContent style={{ backgroundColor: '#111111', color: 'white' }}>
+        <DialogContentText
+          style={{
+            backgroundColor: '#111111',
+            color: 'white',
+            marginTop: '1rem',
+          }}
+        >
+          Follow the Steps
+        </DialogContentText>
 
-        <Divider />
-
-        <List style={{ textAlign: 'center', justifyContent: 'center' }}>
+        <List
+          style={{
+            textAlign: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#111111',
+            color: 'white',
+          }}
+        >
           <ListItem>
             <ListItemText primary="1 Click on Scanners" />
           </ListItem>
-          <Divider />
           <ListItem divider>
             <ListItemText primary="2 Select favorite strategy" />
           </ListItem>
           <ListItem>
             <ListItemText primary="3 Click on Excel button to download file" />
           </ListItem>
-          <Divider light />
           <ListItem>
             <ListItemText primary="4 Upload the file on the main page" />
           </ListItem>
         </List>
       </DialogContent>
-      <Divider />
-      <DialogActions>
+      <DialogActions style={{ backgroundColor: '#111111', color: 'white' }}>
         <Button
+          variant="outlined"
           onClick={props.show}
-          style={{ backgroundColor: '#112A24', color: 'white' }}
+          style={{ color: 'white', border: '2px solid ' + grey }}
         >
           Close
         </Button>
