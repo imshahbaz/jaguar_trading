@@ -1,5 +1,13 @@
 import * as React from 'react';
-import { Box, Grid, Divider, Button, Input, Paper } from '@mui/material';
+import {
+  Box,
+  Grid,
+  Divider,
+  Button,
+  Input,
+  Paper,
+  Typography,
+} from '@mui/material';
 import { useState, useEffect } from 'react';
 import readXlsxFile from 'read-excel-file';
 import { CloudUpload as CloudUploadIcon } from '@mui/icons-material';
@@ -95,6 +103,9 @@ function AcceptFileForm(props) {
         marginTop: '1rem',
       }}
     >
+      <Typography style={{ color: ColorCodes.text, fontWeight: 'bold' }}>
+        Upload Excel File
+      </Typography>
       <form onSubmit={(e) => props.onSubmit(e)}>
         <Box className="upload-input" onClick={props.triggerClick}>
           <img
