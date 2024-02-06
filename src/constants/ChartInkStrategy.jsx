@@ -24,4 +24,9 @@ export const chartink_strategy2 = [
     link: 'https://chartink.com/screener/bullish-harami-9503969778',
     display: true,
   },
+  {
+    name: '3 Inside Up',
+    link: 'https://chartink.com/screener/adx-cross-578',
+    display: true,
+  },
 ];
