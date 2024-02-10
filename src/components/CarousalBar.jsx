@@ -8,6 +8,7 @@ import { ColorCodes } from '../constants/ColorCodes.jsx';
 import TutorialModal from '../components/TutorialModal.jsx';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
+import MarginSearch from './MarginSearch.jsx';
 
 export default function CarousalBar() {
   const style = {
@@ -20,10 +21,21 @@ export default function CarousalBar() {
 
   const [show, setShow] = useState(false);
   const [tutorialModalShow, setTutorialModalShow] = useState(false);
+  const [searchBarflag, setSearchBarflag] = useState(false);
 
   const hide = () => setShow(false);
   const handleTutorialShow = () => {
     setTutorialModalShow(!tutorialModalShow);
+  };
+
+  const display = (element) => {
+    if (element === 'search') {
+      setShow(false);
+      setSearchBarflag(!searchBarflag);
+    } else if (element === 'scanner') {
+      setShow(!show);
+      setSearchBarflag(false);
+    }
   };
 
   return (
@@ -37,7 +49,7 @@ export default function CarousalBar() {
       >
         <Box
           style={{ ...style, verticalAlign: 'middle', display: 'flex' }}
-          onClick={() => setShow(!show)}
+          onClick={() => display('scanner')}
         >
           <TroubleshootIcon style={{ marginRight: '3px' }}></TroubleshootIcon>
           <Typography style={{ fontWeight: 'bold' }}>Scanners</Typography>
@@ -53,8 +65,17 @@ export default function CarousalBar() {
           <AssignmentIcon style={{ marginRight: '3px' }}></AssignmentIcon>
           <Typography style={{ fontWeight: 'bold' }}>Tutorial</Typography>
         </Box>
+        <Box
+          style={{ ...style, verticalAlign: 'middle', display: 'flex' }}
+          onClick={() => display('search')}
+        >
+          <TroubleshootIcon style={{ marginRight: '3px' }}></TroubleshootIcon>
+          <Typography style={{ fontWeight: 'bold' }}>Search Margin</Typography>
+        </Box>
       </Stack>
+
       {show && <Scanners style={style} hide={hide}></Scanners>}
+      {searchBarflag && <MarginSearch></MarginSearch>}
       <Divider
         color={ColorCodes.element}
         style={{ marginTop: '1rem' }}

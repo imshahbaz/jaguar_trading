@@ -26,3 +26,11 @@ export const handleData = (data) => {
     return b.margin - a.margin;
   });
 };
+
+export const searchMargin = (query) => {
+  if (query === '') return [];
+
+  return mtf.filter((stock) => {
+    return stock.symbol.toLowerCase().includes(query.toLowerCase());
+  });
+};
