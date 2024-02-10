@@ -70,7 +70,9 @@ export default function CarousalBar() {
           onClick={() => display('search')}
         >
           <TroubleshootIcon style={{ marginRight: '3px' }}></TroubleshootIcon>
-          <Typography style={{ fontWeight: 'bold' }}>Search Margin</Typography>
+          <Typography style={{ fontWeight: 'bold', whiteSpace: 'nowrap' }}>
+            Search Margin
+          </Typography>
         </Box>
       </Stack>
 
