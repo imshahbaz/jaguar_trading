@@ -100,6 +100,9 @@ const PopulateSearch = (props) => {
                 Name
               </TableCell>
               <TableCell align="center" style={style}>
+                Symbol
+              </TableCell>
+              <TableCell align="center" style={style}>
                 Margin
               </TableCell>
             </TableRow>
@@ -117,6 +120,9 @@ const PopulateSearch = (props) => {
                   style={style}
                 >
                   {row.name}
+                </TableCell>
+                <TableCell align="center" style={style}>
+                  {row.symbol}
                 </TableCell>
                 <TableCell align="center" style={style}>
                   {row.percent}

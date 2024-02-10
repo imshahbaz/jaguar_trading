@@ -31,6 +31,9 @@ export const searchMargin = (query) => {
   if (query === '') return [];
 
   return mtf.filter((stock) => {
-    return stock.symbol.toLowerCase().includes(query.toLowerCase());
+    return (
+      stock.symbol.toLowerCase().includes(query.toLowerCase()) ||
+      stock.name.toLowerCase().includes(query.toLowerCase())
+    );
   });
 };
