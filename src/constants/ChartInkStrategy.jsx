@@ -1,12 +1,22 @@
 export const chartink_strategy2 = [
   {
-    name: '3:30 Formula',
-    link: 'https://chartink.com/screener/3-30-2138',
+    name: 'RSE',
+    link: 'https://chartink.com/screener/crossing-5011',
+    display: true,
+  },
+  {
+    name: 'Shiffon',
+    link: 'https://chartink.com/screener/s4-1147',
     display: true,
   },
   {
     name: 'Hammer',
     link: 'https://chartink.com/screener/hammer-16123355',
+    display: true,
+  },
+  {
+    name: '3:30 Formula',
+    link: 'https://chartink.com/screener/3-30-2138',
     display: true,
   },
   {
@@ -17,11 +27,6 @@ export const chartink_strategy2 = [
   {
     name: '3 Inside Up',
     link: 'https://chartink.com/screener/adx-cross-578',
-    display: true,
-  },
-  {
-    name: 'Shiffon',
-    link: 'https://chartink.com/screener/s4-1147',
     display: true,
   },
 ];
