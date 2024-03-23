@@ -29,4 +29,9 @@ export const chartink_strategy2 = [
     link: 'https://chartink.com/screener/adx-cross-578',
     display: true,
   },
+  {
+    name: 'Super Bull',
+    link: 'https://chartink.com/screener/lorse',
+    display: true,
+  },
 ];
