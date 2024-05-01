@@ -34,4 +34,9 @@ export const chartink_strategy2 = [
     link: 'https://chartink.com/screener/lorse',
     display: true,
   },
+{name:'Rollinger',
+link:
+'https://chartink.com/screener/vs-591',
+'display': true
+}
 ];
