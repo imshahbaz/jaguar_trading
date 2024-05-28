@@ -38,5 +38,7 @@ export const chartink_strategy2 = [
 link:
 'https://chartink.com/screener/vs-591',
 'display': true
-}
+},
+{name:'Super Bollinger',link:'https://chartink.com/screener/superbollinger-2',
+display:true}
 ];
