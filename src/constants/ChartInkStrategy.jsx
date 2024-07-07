@@ -40,5 +40,7 @@ link:
 'display': true
 },
 {name:'Super Bollinger',link:'https://chartink.com/screener/superbollinger-2',
+display:true},
+{name:'3:30 Intraday',link:'https://chartink.com/screener/3-30-intraday-8',
 display:true}
 ];
