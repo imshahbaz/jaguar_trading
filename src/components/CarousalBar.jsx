@@ -151,7 +151,7 @@ function Logo() {
         style={{
           fontWeight: 'bold',
           color: ColorCodes.text,
-          marginLeft: '8px',
+          marginLeft: '12px',
           fontFamily: 'Times New Roman',
           fontSize: '2rem',
         }}
