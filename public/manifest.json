@@ -3,17 +3,17 @@
   "name": "Jaguar Trading",
   "icons": [
     {
-      "src": "jaguar-logo-circular.png",
+      "src": "logoround.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     },
     {
-      "src": "jaguar-logo-circular.png",
+      "src": "logoround.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "jaguar-logo-circular.png",
+      "src": "logoround.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -21,5 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#111111"
+  "background_color": "#0b051d"
 }
