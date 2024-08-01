@@ -3,7 +3,7 @@ import { Box, Stack, Divider, Typography } from '@mui/material';
 import '../css/Scrollable.css';
 import { useState } from 'react';
 import { chartink_strategy2 } from '../constants/ChartInkStrategy';
-import jaguarlogo from '../images/starlogo.jpg';
+import jaguarlogo from '../images/starlogo.png';
 import { ColorCodes } from '../constants/ColorCodes.jsx';
 import TutorialModal from '../components/TutorialModal.jsx';
 import AssignmentIcon from '@mui/icons-material/Assignment';
