@@ -54,4 +54,9 @@ export const chartink_strategy2 = [
     link: 'https://chartink.com/screener/2050-145',
     display: true,
   },
+  {
+    name: 'Dual Rsi',
+    link: 'https://chartink.com/screener/dual-rsi-85',
+    display: true,
+  },
 ];
