@@ -5,8 +5,6 @@ import { useState } from 'react';
 import { chartink_strategy2 } from '../constants/ChartInkStrategy';
 import jaguarlogo from '../images/starlogo.png';
 import { ColorCodes } from '../constants/ColorCodes.jsx';
-import TutorialModal from '../components/TutorialModal.jsx';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 import MarginSearch from './MarginSearch.jsx';
 
@@ -20,13 +18,9 @@ export default function CarousalBar() {
   };
 
   const [show, setShow] = useState(false);
-  const [tutorialModalShow, setTutorialModalShow] = useState(false);
   const [searchBarflag, setSearchBarflag] = useState(false);
 
   const hide = () => setShow(false);
-  const handleTutorialShow = () => {
-    setTutorialModalShow(!tutorialModalShow);
-  };
 
   const display = (element) => {
     if (element === 'search') {
@@ -55,17 +49,6 @@ export default function CarousalBar() {
           <Typography style={{ fontWeight: 'bold' }}>Scanners</Typography>
         </Box>
         <Box
-          style={{
-            verticalAlign: 'middle',
-            display: 'flex',
-            ...style,
-          }}
-          onClick={handleTutorialShow}
-        >
-          <AssignmentIcon style={{ marginRight: '3px' }}></AssignmentIcon>
-          <Typography style={{ fontWeight: 'bold' }}>Tutorial</Typography>
-        </Box>
-        <Box
           style={{ ...style, verticalAlign: 'middle', display: 'flex' }}
           onClick={() => display('search')}
         >
@@ -82,10 +65,6 @@ export default function CarousalBar() {
         color={ColorCodes.element}
         style={{ marginTop: '1rem' }}
       ></Divider>
-      <TutorialModal
-        show={handleTutorialShow}
-        open={tutorialModalShow}
-      ></TutorialModal>
     </Box>
   );
 }
