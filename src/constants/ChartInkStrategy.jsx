@@ -12,7 +12,7 @@ export const chartink_strategy2 = [
   {
     name: 'Hammer',
     link: 'https://chartink.com/screener/hammer-16123355',
-    display: true,
+    display: false,
   },
   {
     name: '3:30 Formula',
@@ -42,7 +42,7 @@ export const chartink_strategy2 = [
   {
     name: 'Super Bollinger',
     link: 'https://chartink.com/screener/superbollinger-2',
-    display: true,
+    display: false,
   },
   {
     name: '3:30 Intraday',
@@ -57,6 +57,16 @@ export const chartink_strategy2 = [
   {
     name: 'Dual Rsi',
     link: 'https://chartink.com/screener/dual-rsi-85',
+    display: false,
+  },
+  {
+    name: '521',
+    link: 'https://chartink.com/screener/521-2067',
+    display: true,
+  },
+  {
+    name: 'Super Rsi',
+    link: 'https://chartink.com/screener/super-rsi-251',
     display: true,
   },
 ];
